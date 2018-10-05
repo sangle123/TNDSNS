@@ -141,6 +141,20 @@
             </div>
         </section>
         <!--end of slider section-->
+        <section id="verse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="event_header text-center">
+                            <div class="dailyVersesWrapper">
+                                <div class="dailyVerses linkToWebsite"><a href="https://dailyverses.net" target="_blank"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
 
 
 
@@ -415,6 +429,17 @@
                 delay: 10,
                 time: 1000
             });
+
+        $(document).ready(function(){
+        $.ajax({
+        url:'https://dailyverses.net/getdailyverse.ashx?language=niv&isdirect=1&url=' + window.location.hostname,
+        dataType: 'JSONP',
+        success:function(json){
+        $(".dailyVersesWrapper").prepend(json.html);
+        }
+        });
+        });
+
         </script>
 
         <!--Gmaps-->
